@@ -30,6 +30,8 @@ public class BombBehavior : MonoBehaviour
             obj.GetComponent<Rigidbody2D>().AddForce(direction * force);
         }
 
+       
+        gameObject.SetActive(false);
     }
 
     void OnDrawGizmosSelected()
