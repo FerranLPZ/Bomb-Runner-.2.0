@@ -11,8 +11,12 @@ public class BombDropper : MonoBehaviour
 
     public float speed;
     public float distBetween;
+    public float desiredHeightAbovePlayer;
+
+    public float range;
 
     private float distance;
+    private bool isDroppingBomb = false;
 
 
 
@@ -24,44 +28,56 @@ public class BombDropper : MonoBehaviour
             Debug.Log("Bombs AWAY!");
             bombDrop();
             //Debug.Log("Bombs AWAY!");
-        
+
         }
 
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Debug.Log("Bombs AWAY!");
-            bombDrop();
-            //Debug.Log("Bombs AWAY!");
+        
 
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distanceToPlayer <= range && !isDroppingBomb)
+        {
+            isDroppingBomb = true;
+            Debug.Log("Bombs AWAY!");
+            InvokeRepeating("bombDrop", 0f, 5f);
         }
+        else if (distanceToPlayer > range && isDroppingBomb)
+        {
+            isDroppingBomb = false;
+            CancelInvoke("bombDrop");
+        }
+
 
         if (player != null)
         {
-            // Cast both positions to Vector2 before calculating the distance
-            distance = Vector2.Distance((Vector2)transform.position, (Vector2)player.transform.position);
+            // Calculate horizontal distance between the BombDropper and the player
+            float horizontalDistance = Mathf.Abs(transform.position.x - player.transform.position.x);
 
-            if (distance < distBetween)
+            // Calculate the target position for the BombDropper directly above the player at the desired height
+            Vector3 targetPosition = new Vector3(player.transform.position.x, player.transform.position.y + desiredHeightAbovePlayer, transform.position.z);
+
+            // If the BombDropper is within the horizontal distance threshold, only adjust Y position
+            if (horizontalDistance < distBetween)
             {
-                // Cast player's position to Vector2 and then subtract
-                Vector2 direction = (Vector2)player.transform.position - (Vector2)transform.position;
-                direction.Normalize();
+                // Smoothly move the BombDropper towards the target position at the specified speed
+                // This will adjust both X (if needed) and Y positions dynamically
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            }
+            else
+            {
+                // If outside the horizontal distance threshold, adjust X and Y positions towards the player
+                // Smoothly move towards a point directly above the player, respecting the desiredHeightAbovePlayer
+                Vector3 horizontalTargetPosition = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, horizontalTargetPosition, speed * Time.deltaTime);
 
-                // Check if the player is below the object on the y-axis and prevent moving down if so
-                if (player.transform.position.y < transform.position.y)
-                {
-                    direction.y = 0;
-                }
-
-                // Calculate the new position, only moving up or not at all on the y-axis
-                Vector2 newPosition = (Vector2)transform.position + direction * speed * Time.deltaTime;
-
-                // Move the bomb dropper towards the new position
-                // No need to cast newPosition since it's already a Vector2
-                transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
+                // Separately adjust the vertical position to ensure it smoothly follows the player's Y position
+                // This maintains the BombDropper directly above or at a fixed height above the player
+                float newYPosition = Mathf.MoveTowards(transform.position.y, targetPosition.y, speed * Time.deltaTime);
+                transform.position = new Vector3(transform.position.x, newYPosition, transform.position.z);
             }
         }
     }
@@ -70,9 +86,15 @@ public class BombDropper : MonoBehaviour
 
     void bombDrop()
     {
+        // Check if the bomb is already active, and if so, don't instantiate another
+        if (bombObj.activeInHierarchy)
+        {
+            Debug.Log("Bomb already active, waiting to drop the next one.");
+            return;
+        }
+
+        Debug.Log("Dropping bomb.");
         bombObj.SetActive(true);
         Instantiate(bombObj, this.transform.position, this.transform.rotation);
     }
-
-    
 }

@@ -11,14 +11,31 @@ public class BombBehavior : MonoBehaviour
 
 
     void Update()
+
+        
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("BOOM!");
             explode();
         }
+        
     }
-    
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if the bomb has collided with the player
+        if (collision.gameObject.tag == "platform")
+        {
+            Debug.Log("Bomb HIT");
+            Invoke("explode", 2f);
+            //explode();
+
+
+        }
+    }
+
 
     void explode()
     {
