@@ -26,10 +26,10 @@ public class BombBehavior : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the bomb has collided with the player
-        if (collision.gameObject.tag == "platform")
+        if (collision.gameObject.tag == "platform" || collision.gameObject.tag == "Player")
         {
             Debug.Log("Bomb HIT");
-            Invoke("explode", 2f);
+            Invoke("explode", 0.5f);
             //explode();
 
 
