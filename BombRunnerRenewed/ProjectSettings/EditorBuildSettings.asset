@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/Ferran'sWorkplace.unity
+    guid: 317649a9fc01db345983ae4ea8db1086
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: eb5be56d550703c4f913d493b48f048f
   m_configObjects: {}
