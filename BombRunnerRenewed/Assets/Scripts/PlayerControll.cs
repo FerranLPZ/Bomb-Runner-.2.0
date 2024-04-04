@@ -12,6 +12,8 @@ public class PlayerControll : MonoBehaviour
     public LayerMask groundMask;
     public bool grounded;
     public float drag = 0.95f;
+    public int maxhealth = 100;
+    public int currentHealth;
 
 
 
@@ -19,6 +21,7 @@ public class PlayerControll : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxhealth;
     }
 
     // Update is called once per frame
@@ -49,5 +52,10 @@ public class PlayerControll : MonoBehaviour
     void CheckGround()
     {
         grounded = Physics2D.OverlapBox(groundCheck.bounds.center, groundCheck.bounds.size, 0f, groundMask) != null;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
     }
 }
