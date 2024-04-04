@@ -593,7 +593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4476585461495771198, guid: 9a7aed4b15943af4f8082cd3ef316595, type: 3}
       propertyPath: jumpStrenght
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4476585461495771199, guid: 9a7aed4b15943af4f8082cd3ef316595, type: 3}
       propertyPath: m_Name
@@ -876,6 +876,10 @@ PrefabInstance:
     - target: {fileID: 1334265451568589430, guid: c844ed75341ce5243be3d3a91d11f94a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334265451568589430, guid: c844ed75341ce5243be3d3a91d11f94a, type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 7199468429574075911, guid: c844ed75341ce5243be3d3a91d11f94a, type: 3}
       propertyPath: m_PlayOnAwake
