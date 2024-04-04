@@ -139,3 +139,5 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 1
+  audioSource: {fileID: 0}
+  boomSound: {fileID: 0}

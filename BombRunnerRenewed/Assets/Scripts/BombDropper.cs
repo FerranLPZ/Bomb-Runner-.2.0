@@ -39,6 +39,16 @@ public class BombDropper : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+        if (Input.GetKeyDown(KeyCode.G) && bombObj.activeInHierarchy == false)
+        {
+            Debug.Log("Bombs AWAY!");
+            bombDrop();
+            //Debug.Log("Bombs AWAY!");
+
+        }
+
+
+
         if (distanceToPlayer <= range && !isDroppingBomb)
         {
             isDroppingBomb = true;
