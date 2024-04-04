@@ -14,6 +14,7 @@ public class BombDropper : MonoBehaviour
     public float desiredHeightAbovePlayer;
 
     public float range;
+    public float fireRate;
 
     private float distance;
     private bool isDroppingBomb = false;
@@ -53,7 +54,7 @@ public class BombDropper : MonoBehaviour
         {
             isDroppingBomb = true;
             Debug.Log("Bombs AWAY!");
-            InvokeRepeating("bombDrop", 0f, 5f);
+            InvokeRepeating("bombDrop", 0f, fireRate);
         }
         else if (distanceToPlayer > range && isDroppingBomb)
         {
