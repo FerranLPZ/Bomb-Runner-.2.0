@@ -6,6 +6,7 @@ TagManager:
   tags:
   - platform
   - Bomb
+  - checkpoint
   layers:
   - Default
   - TransparentFX
