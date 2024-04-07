@@ -61,25 +61,25 @@ public class BombBehavior : MonoBehaviour
 
         foreach (Collider2D obj in objects)
         {
-            Vector2 direction = obj.transform.position - transform.position;
-            obj.GetComponent<Rigidbody2D>().AddForce(direction * force);
+            Vector2 direction = (obj.transform.position - transform.position).normalized; // Get the normalized direction.
+            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                rb.AddForce(direction * force);
+
+                // If the object has a Player script attached to it, deal damage
+                PlayerControll playerScript = obj.GetComponent<PlayerControll>();
+                if (playerScript != null)
+                {
+                    playerScript.TakeDamage(2); // Replace someDamageAmount with the actual amount of damage
+                }
+            }
         }
-        //boomSound.Play();
-        audioSource.PlayOneShot(boomSound);
-        //gameObject.GetComponent<AudioSource>().Play();
 
-
-        gameObject.SetActive(false);
-        //Destroy(gameObject);
+        gameObject.SetActive(false); // Or Destroy(gameObject); to remove the bomb after exploding
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, impactField);
 
-    }
-
-    
 
 }
