@@ -14,8 +14,9 @@ public class PlayerControll : MonoBehaviour
     public float drag = 0.95f;
     public int maxhealth = 100;
     public int currentHealth;
+    private bool isDead;
 
-
+    public gameMan gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,11 @@ public class PlayerControll : MonoBehaviour
             rb.velocity = Vector2.up * jumpStrenght;
         }
 
+        if(currentHealth <= 0 && !isDead)
+        {
+            isDead = true;
+            gameManager.gameOver();
+        }
     }
 
     void FixedUpdate()
@@ -47,6 +53,7 @@ public class PlayerControll : MonoBehaviour
             horizontalVelocity.x *= drag;
             rb.velocity = horizontalVelocity;
         }
+
     }
 
     void CheckGround()
