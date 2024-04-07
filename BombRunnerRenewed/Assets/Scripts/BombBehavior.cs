@@ -12,7 +12,6 @@ public class BombBehavior : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip boomSound;
 
-    //The AudioSource component to play the sounds; assign this in the Inspector.
 
     void Start()
     {
