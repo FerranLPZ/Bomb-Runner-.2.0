@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class BombDamage : MonoBehaviour
 {
-    public float Damage;
+    public int damageAmount = 10;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+       
         if (collision.CompareTag("Player"))
         {
-            //TakeDamage(collision);
+           
+            PlayerControll player = collision.GetComponent<PlayerControll>();
+
+            
+            if (player != null)
+            {
+                player.TakeDamage(damageAmount);
+
+                
+                HealthBar healthBar = FindObjectOfType<HealthBar>(); 
+                if (healthBar != null)
+                {
+                    healthBar.SetHealth(player.currentHealth);
+                }
+            }
         }
     }
-
-    //public void TakeDamage(Collider2D other)
-    //{
-      //  Player Pl = other.GetComponent<Player>();
-    //}
 }
