@@ -14,16 +14,14 @@ public class Checkpoint : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-
-        //spriteRenderer.sprite = newSprite;
-        Debug.Log("In Range");
-        if (collision.gameObject.tag == "Player")
+        //Check if the bomb has collided with the player
+        if (other.CompareTag("Player"))
         {
-            spriteRenderer.sprite = newSprite;
             Debug.Log("Check Point!");
+            spriteRenderer.sprite = newSprite;
         }
-   
+        
     }
 }
