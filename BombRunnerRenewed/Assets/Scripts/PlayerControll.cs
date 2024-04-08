@@ -16,13 +16,20 @@ public class PlayerControll : MonoBehaviour
     public int currentHealth;
     private bool isDead;
 
+
+    private bool isMoving = false;
     public gameMan gameManager;
+
+
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxhealth;
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,6 +48,26 @@ public class PlayerControll : MonoBehaviour
         {
             isDead = true;
             gameManager.gameOver();
+        }
+
+        if (xInput > 0)
+        {
+            // Moving right - ensure the sprite is not flipped
+            transform.localScale = new Vector3(1, 1, 1);
+            isMoving = true;
+            animator.SetBool("isMoving", true);
+        }
+        else if (xInput < 0)
+        {
+            // Moving left - flip the sprite by making its x-scale negative
+            transform.localScale = new Vector3(-1, 1, 1);
+            isMoving = true;
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            isMoving = false;
+            animator.SetBool("isMoving", false);
         }
     }
 
@@ -65,4 +92,6 @@ public class PlayerControll : MonoBehaviour
     {
         currentHealth -= damage;
     }
+
+    
 }
