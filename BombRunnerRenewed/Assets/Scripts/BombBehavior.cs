@@ -11,6 +11,7 @@ public class BombBehavior : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip boomSound;
+    public GameObject hitVFX;
 
 
     void Start()
@@ -45,7 +46,6 @@ public class BombBehavior : MonoBehaviour
             Invoke("explode", 1f);
             //explode();
 
-
         }
         else if (collision.gameObject.tag == "Player")
         {
@@ -66,6 +66,7 @@ public class BombBehavior : MonoBehaviour
 
             if (rb != null)
             {
+                
                 rb.AddForce(direction * force);
 
                 // If the object has a Player script attached to it, deal damage
