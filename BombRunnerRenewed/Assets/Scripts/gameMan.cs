@@ -27,6 +27,5 @@ public class gameMan : MonoBehaviour
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("BUTTON PRESSED");
     }
 }
