@@ -60,7 +60,8 @@ public class BombBehavior : MonoBehaviour
 
         if (hitVFX != null)
         {
-            Instantiate(hitVFX, transform.position, Quaternion.identity);
+            GameObject _exp =  Instantiate(hitVFX, transform.position, Quaternion.identity);
+            Destroy(_exp, 1);
         }
 
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, impactField, hitLayer);

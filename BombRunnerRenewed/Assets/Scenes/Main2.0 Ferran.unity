@@ -1278,6 +1278,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5749495798403524239, guid: 5b640731124a8db45a0a21b61f004d55, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4621583741459717336, guid: 5b640731124a8db45a0a21b61f004d55, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1326,7 +1330,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion animation
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5749495798403524239, guid: 5b640731124a8db45a0a21b61f004d55, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b640731124a8db45a0a21b61f004d55, type: 3}
 --- !u!1 &665425829
 GameObject:
