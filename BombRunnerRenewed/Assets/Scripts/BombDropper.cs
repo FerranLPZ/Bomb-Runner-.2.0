@@ -19,18 +19,13 @@ public class BombDropper : MonoBehaviour
     private float distance;
     private bool isDroppingBomb = false;
 
-
+    private Animator animator;
 
     void Start()
     {
 
-        if (Input.GetKeyDown(KeyCode.G) && bombObj.activeInHierarchy == false)
-        {
-            Debug.Log("Bombs AWAY!");
-            bombDrop();
-            //Debug.Log("Bombs AWAY!");
 
-        }
+        animator = GetComponent<Animator>();
 
     }
 
@@ -40,12 +35,33 @@ public class BombDropper : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+        float xInput = Input.GetAxis("Horizontal");
+
         if (Input.GetKeyDown(KeyCode.G) && bombObj.activeInHierarchy == false)
         {
             Debug.Log("Bombs AWAY!");
             bombDrop();
             //Debug.Log("Bombs AWAY!");
 
+        }
+
+        if (xInput > 0)
+        {
+            // Moving right - ensure the sprite is not flipped
+            transform.localScale = new Vector3(1, 1, 1);
+            transform.rotation = Quaternion.Euler(0f, 0f, -20f);
+
+        }
+        else if (xInput < 0)
+        {
+            // Moving left - flip the sprite by making its x-scale negative
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(0f, 0f, -340f);
+
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
 
 
@@ -97,6 +113,8 @@ public class BombDropper : MonoBehaviour
 
     void bombDrop()
     {
+
+        animator.SetTrigger("bombDropped");
         // Check if the bomb is already active, and if so, don't instantiate another
         if (bombObj.activeInHierarchy)
         {

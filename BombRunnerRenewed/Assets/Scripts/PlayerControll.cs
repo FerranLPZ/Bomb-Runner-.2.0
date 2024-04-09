@@ -22,6 +22,7 @@ public class PlayerControll : MonoBehaviour
 
 
     private Animator animator;
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class PlayerControll : MonoBehaviour
         currentHealth = maxhealth;
 
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,12 +44,15 @@ public class PlayerControll : MonoBehaviour
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.velocity = Vector2.up * jumpStrenght;
+            animator.SetBool("isMoving", false);
+            source.Play();
         }
 
         if(currentHealth <= 0 && !isDead)
         {
             isDead = true;
             gameManager.gameOver();
+            animator.SetBool("isMoving", false);
         }
 
         if (xInput > 0)
