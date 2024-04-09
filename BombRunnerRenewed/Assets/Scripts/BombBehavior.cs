@@ -57,6 +57,12 @@ public class BombBehavior : MonoBehaviour
     void explode()
     {
         audioSource.PlayOneShot(boomSound);
+
+        if (hitVFX != null)
+        {
+            Instantiate(hitVFX, transform.position, Quaternion.identity);
+        }
+
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, impactField, hitLayer);
 
         foreach (Collider2D obj in objects)
