@@ -143,10 +143,10 @@ TextureImporter:
       name: Drop_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 32
-        height: 32
+        x: 57
+        y: 9
+        width: 30
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: Drop_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
-        width: 32
-        height: 32
+        x: 105
+        y: 4
+        width: 30
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: Drop_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 16
-        width: 32
-        height: 32
+        x: 154
+        y: 3
+        width: 29
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Drop_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 16
-        width: 32
-        height: 32
+        x: 202
+        y: 13
+        width: 29
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: Drop_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 16
-        width: 32
-        height: 32
+        x: 249
+        y: 9
+        width: 30
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,69 +240,6 @@ TextureImporter:
       bones: []
       spriteID: 92c0fa0e1906c1220800000000000000
       internalID: 2457945676293540905
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drop_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 16
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22ba7e1c7b8879dc0800000000000000
-      internalID: -3632284251637437662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drop_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 16
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 830d8f7d748a893d0800000000000000
-      internalID: -3199622508727185352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Drop_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 16
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23eafbc194e1e74c0800000000000000
-      internalID: -4287956495846363598
       vertices: []
       indices: 
       edges: []
