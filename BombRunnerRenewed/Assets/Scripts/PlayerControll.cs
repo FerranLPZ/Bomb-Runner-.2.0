@@ -51,8 +51,10 @@ public class PlayerControll : MonoBehaviour
 
         if(currentHealth <= 0 && !isDead)
         {
-            isDead = true;
+
+            Debug.Log("YOU ARE DEAD!");
             gameManager.gameOver();
+            isDead = true;  
             animator.SetBool("isMoving", false);
         }
 
