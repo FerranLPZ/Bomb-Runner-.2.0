@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Ferran'sWorkplace.unity
     guid: 317649a9fc01db345983ae4ea8db1086
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main2.0 Ferran.unity
     guid: 15de9c9653afc804bb3283c2a0636c97
+  - enabled: 1
+    path: Assets/Scenes/Main2.0.unity
+    guid: d3357d59b06ce71449441605e9b1bdd8
   m_configObjects: {}
