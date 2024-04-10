@@ -19,6 +19,7 @@ public class PlayerControll : MonoBehaviour
 
     private bool isMoving = false;
     public gameMan gameManager;
+    public HealthBar healthBar;
 
 
     private Animator animator;
@@ -96,6 +97,7 @@ public class PlayerControll : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 
     
