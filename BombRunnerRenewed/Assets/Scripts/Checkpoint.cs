@@ -5,6 +5,8 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public Sprite newSprite; // Assign this in the inspector with your desired sprite
+    public bool isChecked = false;
+    public PlayerControll player;
 
     private SpriteRenderer spriteRenderer;
 
@@ -21,6 +23,8 @@ public class Checkpoint : MonoBehaviour
         {
             Debug.Log("Check Point!");
             spriteRenderer.sprite = newSprite;
+            isChecked = true;
+            player.setNewSpawn(transform.position);
         }
         
     }

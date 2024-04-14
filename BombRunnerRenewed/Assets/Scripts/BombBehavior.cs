@@ -9,18 +9,17 @@ public class BombBehavior : MonoBehaviour
 
     public LayerMask hitLayer;
 
-    public AudioSource audioSource;
-    public AudioClip boomSound;
+    //public AudioSource audioSource;
+    //public AudioClip boomSound;
     public GameObject hitVFX;
+    public soundHandler audio;
 
 
     void Start()
     {
-        if (audioSource != null)
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
 
+
+        
     }
 
     void Update()
@@ -43,23 +42,27 @@ public class BombBehavior : MonoBehaviour
         if (collision.gameObject.tag == "platform")
         {
             //Debug.Log("Bomb HIT");
+
             Invoke("explode", 1f);
-            //explode();
 
         }
         else if (collision.gameObject.tag == "Player")
         {
             explode();
+           
         }
     }
 
 
     void explode()
     {
-        audioSource.PlayOneShot(boomSound);
+
+        audio.playExp();
+
 
         if (hitVFX != null)
         {
+           
             GameObject _exp =  Instantiate(hitVFX, transform.position, Quaternion.identity);
             Destroy(_exp, 1);
         }
@@ -84,6 +87,7 @@ public class BombBehavior : MonoBehaviour
                 }
             }
         }
+        
 
         gameObject.SetActive(false); // Or Destroy(gameObject); to remove the bomb after exploding
     }

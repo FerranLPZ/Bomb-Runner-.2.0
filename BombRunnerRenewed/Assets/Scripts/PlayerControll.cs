@@ -21,9 +21,21 @@ public class PlayerControll : MonoBehaviour
     public gameMan gameManager;
     public HealthBar healthBar;
 
+    //public Vector3 startPoint;
+
+    
+    public static Vector3 spawnPoint = new Vector3(0, -4, 0);
+    public static int hiScore = 0;
+    public static int gameScore = 0;
+
+
+
+    //public Vector3 startSpawn;
 
     private Animator animator;
     private AudioSource source;
+
+    public GameObject checkpoint1;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +45,8 @@ public class PlayerControll : MonoBehaviour
 
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
+
+        //transform.position = spawnPoint;
     }
 
     // Update is called once per frame
@@ -100,6 +114,11 @@ public class PlayerControll : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+
+    public void setNewSpawn(Vector3 newSpawn)
+    {
+        spawnPoint = newSpawn;
     }
 
     
