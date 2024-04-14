@@ -49,4 +49,9 @@ public class gameMan : MonoBehaviour
         gameScore = gameScore + 1;
         Debug.Log("SCORE: " + gameScore);
     }
+
+    public void menuButton()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
