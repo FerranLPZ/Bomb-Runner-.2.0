@@ -25,8 +25,7 @@ public class PlayerControll : MonoBehaviour
 
     
     public static Vector3 spawnPoint = new Vector3(0, -4, 0);
-    public static int hiScore = 0;
-    public static int gameScore = 0;
+    
 
 
 
@@ -101,6 +100,16 @@ public class PlayerControll : MonoBehaviour
             Vector2 horizontalVelocity = rb.velocity;
             horizontalVelocity.x *= drag;
             rb.velocity = horizontalVelocity;
+        }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Check if the bomb has collided with the player
+        if (other.CompareTag("laser"))
+        {
+            TakeDamage(25);
         }
 
     }
