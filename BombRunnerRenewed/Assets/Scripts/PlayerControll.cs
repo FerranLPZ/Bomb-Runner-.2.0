@@ -21,7 +21,7 @@ public class PlayerControll : MonoBehaviour
     public gameMan gameManager;
     public HealthBar healthBar;
 
-    //public Vector3 startPoint;
+    public Vector3 startPoint;
 
     
     public static Vector3 spawnPoint = new Vector3(0, -4, 0);
@@ -45,7 +45,7 @@ public class PlayerControll : MonoBehaviour
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
 
-        //transform.position = spawnPoint;
+        transform.position = spawnPoint;
     }
 
     // Update is called once per frame
