@@ -46,7 +46,7 @@ public class BombBehavior : MonoBehaviour
             Invoke("explode", 1f);
 
         }
-        else if (collision.gameObject.tag == "Player")
+        else if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bomb" || collision.gameObject.tag == "laser")
         {
             explode();
            

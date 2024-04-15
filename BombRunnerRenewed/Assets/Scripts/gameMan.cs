@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameMan : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public Text score;
 
 
     public static int hiScore = 0;
@@ -16,6 +18,7 @@ public class gameMan : MonoBehaviour
     void Start()
     {
         gameScore = 0;
+        score.text = "HI " + hiScore + " SCORE " + gameScore;
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class gameMan : MonoBehaviour
         if (gameScore > hiScore)
         {
             hiScore = gameScore;
+            score.text = "HI " + hiScore + " SCORE " + gameScore;
             Debug.Log("HI: " + hiScore);
         }
         
@@ -47,6 +51,7 @@ public class gameMan : MonoBehaviour
     public void scorePoint()
     {
         gameScore = gameScore + 1;
+        score.text = "HI " + hiScore + " SCORE " + gameScore;
         Debug.Log("SCORE: " + gameScore);
     }
 
