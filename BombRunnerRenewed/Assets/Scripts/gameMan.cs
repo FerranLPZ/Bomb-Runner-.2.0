@@ -7,12 +7,16 @@ using UnityEngine.UI;
 
 public class gameMan : MonoBehaviour
 {
+   
     public GameObject gameOverUI;
     public Text score;
 
 
     public static int hiScore = 0;
     public static int gameScore = 0;
+    public AudioSource source;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +30,10 @@ public class gameMan : MonoBehaviour
     {
         if (gameScore > hiScore)
         {
+            Debug.Log("scorePoint called");
             hiScore = gameScore;
             score.text = "HI " + hiScore + " SCORE " + gameScore;
-            Debug.Log("HI: " + hiScore);
+            //Debug.Log("HI: " + hiScore);
         }
         
     }
@@ -50,9 +55,11 @@ public class gameMan : MonoBehaviour
 
     public void scorePoint()
     {
+        source.Play();
+        Debug.Log("scorePoint called");
         gameScore = gameScore + 1;
         score.text = "HI " + hiScore + " SCORE " + gameScore;
-        Debug.Log("SCORE: " + gameScore);
+        //Debug.Log("SCORE: " + gameScore);
     }
 
     public void menuButton()
