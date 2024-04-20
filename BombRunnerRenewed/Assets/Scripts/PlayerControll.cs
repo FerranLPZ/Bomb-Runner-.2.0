@@ -45,7 +45,7 @@ public class PlayerControll : MonoBehaviour
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
 
-        transform.position = spawnPoint;
+        //transform.position = spawnPoint;
     }
 
     // Update is called once per frame
@@ -109,7 +109,7 @@ public class PlayerControll : MonoBehaviour
         //Check if the bomb has collided with the player
         if (other.CompareTag("laser"))
         {
-            TakeDamage(25);
+            TakeDamage(15);
         }
 
     }

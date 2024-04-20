@@ -14,18 +14,6 @@ public class pickUP : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    /*
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-        //source.Play();
-        if (collision.gameObject.tag == "Player")
-        {
-            source.Play();
-        }
-    }
-    */
-
     void OnTriggerEnter2D(Collider2D other)
     {
         //source.Play();
