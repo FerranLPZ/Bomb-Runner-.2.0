@@ -15,6 +15,7 @@ public class PlayerControll : MonoBehaviour
     public int maxhealth = 100;
     public int currentHealth;
     private bool isDead;
+    public SpriteRenderer spriteRenderer;
 
 
     private bool isMoving = false;
@@ -130,5 +131,43 @@ public class PlayerControll : MonoBehaviour
         spawnPoint = newSpawn;
     }
 
-    
+    public void ApplyJumpBuff(float amount, float duration)
+    {
+        jumpStrenght += amount;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.yellow;
+        }
+        StartCoroutine(RemoveJumpBuffAfterDelay(amount, duration));
+    }
+
+    private IEnumerator RemoveJumpBuffAfterDelay(float amount, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        jumpStrenght -= amount;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
+
+    public void ApplySpeedBuff(float amount, float duration)
+    {
+        movespeed += amount;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.cyan;
+        }
+        StartCoroutine(RemoveSpeedBuffAfterDelay(amount, duration));
+    }
+
+    private IEnumerator RemoveSpeedBuffAfterDelay(float amount, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        movespeed -= amount;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
 }
