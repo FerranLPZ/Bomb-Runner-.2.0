@@ -14,7 +14,7 @@ public class PlayerControll : MonoBehaviour
     public float drag = 0.95f;
     public int maxhealth = 100;
     public int currentHealth;
-    private bool isDead;
+    private bool isDead = false;
     public SpriteRenderer spriteRenderer;
 
 
@@ -56,7 +56,8 @@ public class PlayerControll : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput * movespeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        
+        if (Input.GetButtonDown("Jump") && grounded && !isDead)
         {
             rb.velocity = Vector2.up * jumpStrenght;
             animator.SetBool("isMoving", false);
@@ -72,24 +73,32 @@ public class PlayerControll : MonoBehaviour
             animator.SetBool("isMoving", false);
         }
 
-        if (xInput > 0)
+        if (xInput > 0 && !isDead)
         {
             // Moving right - ensure the sprite is not flipped
             transform.localScale = new Vector3(1, 1, 1);
             isMoving = true;
             animator.SetBool("isMoving", true);
         }
-        else if (xInput < 0)
+        else if (xInput < 0 && !isDead)
         {
             // Moving left - flip the sprite by making its x-scale negative
             transform.localScale = new Vector3(-1, 1, 1);
             isMoving = true;
             animator.SetBool("isMoving", true);
         }
-        else
+        else if (!isDead)
         {
             isMoving = false;
             animator.SetBool("isMoving", false);
+        }
+
+        else
+        {
+            // Rotate the player by 90 degrees around the z-axis upon death
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 90);
+            spriteRenderer.color = Color.red;
+
         }
     }
 
@@ -113,6 +122,11 @@ public class PlayerControll : MonoBehaviour
             TakeDamage(15);
         }
 
+        if (other.CompareTag("spikes"))
+        {
+            TakeDamage(10);
+        }
+
     }
 
     void CheckGround()
@@ -124,11 +138,21 @@ public class PlayerControll : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        if (spriteRenderer != null)
+        {
+            StopCoroutine("FlashRed");  // Ensure any ongoing flash is stopped before starting a new one
+            StartCoroutine(FlashRed());  // Start the flash effect
+        }
     }
 
     public void setNewSpawn(Vector3 newSpawn)
     {
         spawnPoint = newSpawn;
+    }
+
+    public Vector3 getSpawn()
+    {
+        return spawnPoint;
     }
 
     public void ApplyJumpBuff(float amount, float duration)
@@ -169,5 +193,13 @@ public class PlayerControll : MonoBehaviour
         {
             spriteRenderer.color = Color.white;
         }
+    }
+
+
+    private IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;  // Change color to red
+        yield return new WaitForSeconds(1.0f);  // Wait for 1 or 2 seconds
+        spriteRenderer.color = Color.white;  // Change color back to white
     }
 }
