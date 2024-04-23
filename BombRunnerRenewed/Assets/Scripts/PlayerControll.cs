@@ -202,4 +202,16 @@ public class PlayerControll : MonoBehaviour
         yield return new WaitForSeconds(1.0f);  // Wait for 1 or 2 seconds
         spriteRenderer.color = Color.white;  // Change color back to white
     }
-}
+
+    public void ApplyHealthBuff(int amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxhealth);
+        healthBar.SetHealth(currentHealth);
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.cyan;
+        }
+    }
+
+    }

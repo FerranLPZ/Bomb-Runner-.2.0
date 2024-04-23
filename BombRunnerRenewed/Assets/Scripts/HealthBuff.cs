@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "HealthBuff")]
 public class HealthBuff : poweUp
 {
-    public float amount;
+    public int amount;
 
     public override void Apply(GameObject target)
     {
