@@ -7848,7 +7848,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 1846649554}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &481901329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9272,7 +9275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 121213119}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &636484993
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10505,7 +10511,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 974153878}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &745409375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13508,7 +13517,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 2091135930}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &1054035278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13613,7 +13625,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 2022019365}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &1071142663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14081,7 +14096,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 528693619}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!1001 &1102840655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21406,7 +21424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4476585461495771186, guid: 9a7aed4b15943af4f8082cd3ef316595, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 52.55
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 4476585461495771186, guid: 9a7aed4b15943af4f8082cd3ef316595, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21575,7 +21593,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 2091431110}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &1235877378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22787,14 +22808,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.11, y: 3.13}
+    oldSize: {x: 6.01, y: 5.98}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.59, y: 2.81}
+  m_Size: {x: 3.11, y: 4.56}
   m_EdgeRadius: 0
 --- !u!212 &1324229199
 SpriteRenderer:
@@ -22836,8 +22857,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b217fbe560dca6b4d8c0a964cc356621, type: 3}
-  m_Color: {r: 0.25157225, g: 0.7623614, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2e01914d479f5bb4abdbbd4644ddd65f, type: 3}
+  m_Color: {r: 0.9622642, g: 0.17853324, b: 0.20959096, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -22855,8 +22876,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324229196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.48, y: -4.23, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: 6.06, y: -4.26, z: 0}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
@@ -23380,7 +23401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3212037378013178020, guid: db8e7be0efd91624ab43aaf90e8003b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3212037378013178042, guid: db8e7be0efd91624ab43aaf90e8003b2, type: 3}
       propertyPath: m_RootOrder
@@ -47345,7 +47366,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 1673223041}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &1791784983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51307,7 +51331,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDuration: 5
   offDuration: 5
+  spriteChangeDelay: 2
   laser: {fileID: 922169886}
+  onSprite: {fileID: 0}
+  offSprite: {fileID: 0}
 --- !u!61 &1991786820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52992,7 +53019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2491971955386982405, guid: 6b6ee568d532d614fb868bf581fd8950, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.93
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 2491971955386982405, guid: 6b6ee568d532d614fb868bf581fd8950, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53171,7 +53198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8695640074971861761, guid: 7b909888298e6b349bd4c5f4d7da30b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.64
+      value: -7.84
       objectReference: {fileID: 0}
     - target: {fileID: 8695640074971861761, guid: 7b909888298e6b349bd4c5f4d7da30b9, type: 3}
       propertyPath: m_LocalPosition.y
