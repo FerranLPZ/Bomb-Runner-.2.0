@@ -58,7 +58,7 @@ public class gameMan : MonoBehaviour
         source.Play();
         Debug.Log("scorePoint called");
         gameScore = gameScore + 1;
-        score.text = "HI " + hiScore + " SCORE " + gameScore;
+        score.text = "HI " + hiScore + " SCORE " + gameScore + "DEATHS ";
         //Debug.Log("SCORE: " + gameScore);
     }
 

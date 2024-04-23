@@ -21,11 +21,14 @@ public class BombDropper : MonoBehaviour
 
     private Animator animator;
 
+    public Vector3 spawnPoint;
+
     void Start()
     {
 
 
         animator = GetComponent<Animator>();
+        transform.position = spawnPoint;
 
     }
 
