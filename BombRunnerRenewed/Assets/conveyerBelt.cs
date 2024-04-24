@@ -14,6 +14,8 @@ public class conveyerBelt : MonoBehaviour
     void Start()
     {
         SetAnimationSpeeds();
+
+       
     }
 
     // Update is called once per frame
@@ -32,8 +34,12 @@ public class conveyerBelt : MonoBehaviour
             Animator animator = segment.GetComponent<Animator>();
             if (animator != null)
             {
-                
-                animator.speed = speed;
+                if (speed > 0)
+                {
+                    animator.speed = speed;
+                }
+
+                //animator.speed = speed;
                 if (isReversed)
                 {
                     animator.SetFloat("direction", -1);

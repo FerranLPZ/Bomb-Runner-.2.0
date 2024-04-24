@@ -150,9 +150,9 @@ public class PlayerControll : MonoBehaviour
         spawnPoint = newSpawn;
     }
 
-    public Vector3 getSpawn()
+    public Vector3 getPos()
     {
-        return spawnPoint;
+        return transform.position;
     }
 
     public void ApplyJumpBuff(float amount, float duration)
@@ -199,7 +199,7 @@ public class PlayerControll : MonoBehaviour
     private IEnumerator FlashRed()
     {
         spriteRenderer.color = Color.red;  // Change color to red
-        yield return new WaitForSeconds(1.0f);  // Wait for 1 or 2 seconds
+        yield return new WaitForSeconds(0.5f);  // Wait for 1 or 2 seconds
         spriteRenderer.color = Color.white;  // Change color back to white
     }
 
