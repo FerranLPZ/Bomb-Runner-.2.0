@@ -5,6 +5,7 @@ using UnityEngine;
 public class BombDropper : MonoBehaviour
 {
     public GameObject player;
+    public PlayerControll playerS;
 
     public GameObject bombObj;
 
@@ -21,14 +22,18 @@ public class BombDropper : MonoBehaviour
 
     private Animator animator;
 
-    public Vector3 spawnPoint;
+    public static Vector3 spawnPoint;
+    public float spawnOffset;
+
 
     void Start()
     {
 
+        spawnPoint = playerS.getPos();
+
 
         animator = GetComponent<Animator>();
-        transform.position = spawnPoint;
+        transform.position = spawnPoint + (Vector3.left * spawnOffset);
 
     }
 
@@ -40,13 +45,7 @@ public class BombDropper : MonoBehaviour
 
         float xInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.G) && bombObj.activeInHierarchy == false)
-        {
-            Debug.Log("Bombs AWAY!");
-            bombDrop();
-            //Debug.Log("Bombs AWAY!");
-
-        }
+       
 
         if (xInput > 0)
         {
@@ -111,7 +110,6 @@ public class BombDropper : MonoBehaviour
             }
         }
     }
-
 
 
     void bombDrop()
