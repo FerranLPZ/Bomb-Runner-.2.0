@@ -25,15 +25,17 @@ public class BombDropper : MonoBehaviour
     public static Vector3 spawnPoint;
     public float spawnOffset;
 
+    private AudioSource source;
 
     void Start()
     {
 
-        spawnPoint = playerS.getPos();
+        spawnPoint = playerS.getSpawn();
 
 
         animator = GetComponent<Animator>();
         transform.position = spawnPoint + (Vector3.left * spawnOffset);
+        source = GetComponent<AudioSource>();
 
     }
 
@@ -115,6 +117,8 @@ public class BombDropper : MonoBehaviour
     void bombDrop()
     {
 
+
+        source.Play();
         animator.SetTrigger("bombDropped");
         // Check if the bomb is already active, and if so, don't instantiate another
         if (bombObj.activeInHierarchy)
@@ -122,8 +126,6 @@ public class BombDropper : MonoBehaviour
             Debug.Log("Bomb already active, waiting to drop the next one.");
             return;
         }
-
-        Debug.Log("Dropping bomb.");
         bombObj.SetActive(true);
         Instantiate(bombObj, this.transform.position, this.transform.rotation);
     }
