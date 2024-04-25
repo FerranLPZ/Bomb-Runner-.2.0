@@ -21421,11 +21421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4476585461495771186, guid: 9a7aed4b15943af4f8082cd3ef316595, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.53
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 4476585461495771186, guid: 9a7aed4b15943af4f8082cd3ef316595, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: -3.34
       objectReference: {fileID: 0}
     - target: {fileID: 4476585461495771186, guid: 9a7aed4b15943af4f8082cd3ef316595, type: 3}
       propertyPath: m_LocalPosition.z
@@ -23242,6 +23242,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3212037377365350884, guid: db8e7be0efd91624ab43aaf90e8003b2, type: 3}
+      propertyPath: range
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212037377365350884, guid: db8e7be0efd91624ab43aaf90e8003b2, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1304447079}
@@ -23249,6 +23253,10 @@ PrefabInstance:
       propertyPath: bombObj
       value: 
       objectReference: {fileID: 1850272694}
+    - target: {fileID: 3212037377365350884, guid: db8e7be0efd91624ab43aaf90e8003b2, type: 3}
+      propertyPath: playerS
+      value: 
+      objectReference: {fileID: 1304447080}
     - target: {fileID: 3212037377365350884, guid: db8e7be0efd91624ab43aaf90e8003b2, type: 3}
       propertyPath: fireRate
       value: 4.7
