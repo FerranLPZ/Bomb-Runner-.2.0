@@ -15,6 +15,7 @@ public class gameMan : MonoBehaviour
     public static int hiScore = 0;
     public static int gameScore = 0;
     public AudioSource source;
+    public AudioSource deathSound;
 
 
 
@@ -23,6 +24,10 @@ public class gameMan : MonoBehaviour
     {
         gameScore = 0;
         score.text = "HI " + hiScore + " SCORE " + gameScore;
+
+        AudioSource[] sources = GetComponents<AudioSource>();
+        source = sources[0]; // Assign the first AudioSource
+        deathSound = sources[1]; // Assign the second AudioSource
     }
 
     // Update is called once per frame
@@ -40,7 +45,10 @@ public class gameMan : MonoBehaviour
 
     public void gameOver()
     {
+
+        deathSound.Play();
         gameOverUI.SetActive(true);
+        deathSound.Play();
     }
 
     public void restart()

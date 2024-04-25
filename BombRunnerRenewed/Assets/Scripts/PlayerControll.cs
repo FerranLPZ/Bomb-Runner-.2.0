@@ -34,6 +34,7 @@ public class PlayerControll : MonoBehaviour
 
     private Animator animator;
     private AudioSource source;
+    private AudioSource dmgSound;
 
     public GameObject checkpoint1;
 
@@ -44,7 +45,11 @@ public class PlayerControll : MonoBehaviour
         currentHealth = maxhealth;
 
         animator = GetComponent<Animator>();
-        source = GetComponent<AudioSource>();
+        
+
+        AudioSource[] sources = GetComponents<AudioSource>();
+        source = sources[0]; // Assign the first AudioSource
+        dmgSound = sources[1]; // Assign the second AudioSource
 
         //transform.position = spawnPoint;
     }
@@ -136,6 +141,7 @@ public class PlayerControll : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        dmgSound.Play();
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         if (spriteRenderer != null)
@@ -153,6 +159,11 @@ public class PlayerControll : MonoBehaviour
     public Vector3 getPos()
     {
         return transform.position;
+    }
+
+    public Vector3 getSpawn()
+    {
+        return spawnPoint;
     }
 
     public void ApplyJumpBuff(float amount, float duration)

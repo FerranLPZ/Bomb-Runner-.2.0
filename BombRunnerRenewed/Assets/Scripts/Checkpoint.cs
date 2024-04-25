@@ -9,11 +9,13 @@ public class Checkpoint : MonoBehaviour
     public PlayerControll player;
 
     private SpriteRenderer spriteRenderer;
+    private AudioSource source;
 
     void Start()
     {
         // Get the SpriteRenderer component from the GameObject this script is attached to
         spriteRenderer = GetComponent<SpriteRenderer>();
+        source = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +23,7 @@ public class Checkpoint : MonoBehaviour
         //Check if the bomb has collided with the player
         if (other.CompareTag("Player"))
         {
+            source.Play();
             Debug.Log("Check Point!");
             spriteRenderer.sprite = newSprite;
             isChecked = true;
